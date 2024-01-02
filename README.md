@@ -1,36 +1,103 @@
-#### 软件架构
-软件架构说明:
 
-##### 后端：
-- 基础框架： SpringBoot
-- 简单数据操作： Spring Data Jpa
-- 复杂数据操作： Mybatis
-- 安全框架： SpringSecurity
-- 模板引擎： Thymeleaf
-- API文档&测试： Swagger2
-- API文档加强&美化： Swagger-Bootstrap-UI, 这个很好看, 而且功能强大,支持生成离线MD文档,但是版本兼容性会有问题, 我试了很多版本, 最终1.9.3可以正常使用
-- hutool工具箱： Java各种工具封装, 爽的雅痞
+【海报】
 
-##### 前端：
-- javaEx, 其实就是对html,css,js的封装, 很简单, 10分钟就能上手。比较接近原生
-修改起来比较方便, 所以就用了。想了解的, 百度JavaEx即可。
 
-- jQuery , 讲真的jQuery用着还是很舒服, 突破各种前端框架的限制
+# 项目介绍
 
-- 这里真的要吹一波jQuery插件库,强大,耦合性低,加入即用, 非常适合本项目
+本期给大家介绍一个简单图书管理 系统.。是一个麻雀虽小五脏俱全的项目，有登录，注册，增删改查等基本功能。是一个标准的 Java Web 项目。代码量少，适合初学者练手学习。
 
-建议看wiki
-1.  本地搭建好java8环境,数据库MySQL5.5+, 克隆项目
-2.  导入sql文件至数据库中
-3.  配置maven, 等待依赖下载完成
-4.  IDE安装好lombok插件
-5.  启动访问http://localhost:8080 即可
-6.  账号：【学生： stu/123】【教师： tea/123】【其他：other/123】【管理员：admin/123】
-7.  swagger API在线文档, 启动访问：http://localhost:8080/doc.html
-#### 使用说明
+该系统有三种角色： 管理员，读者。管理员可以添加图书，添加用户，拥有系统最高权限。读者可以由管理员分配账号，登录本系统，浏览图书并借阅和还书操作。
 
-1.  本项目适用于大学生实训, 或者想要快速搭建一个后台管理类项目的朋友,或者个人学习使用
-2.  不要说为啥这个项目这个东西没加, 哪个东西没加, 针对的层次不一样, 要求也不一样
-3.  很多我也想加, 但是复杂起来了, 不适合目标人群使用
-4.  为了方便大家使用, 并未对密码进行加密, 想要加密的：大家可以在插入用户的时候对密码加密, 在loadByUsername中去除密码加密即可
-5.  如果想要前后端分离的, 只需要把web资源相关的去掉, 保留后端接口即可, 接口文档看swagger即可
+主要模块有： 登录，注册，图书管理，借阅管理，读者管理，用户中心。
+
+技术栈：
+* 后端:  SpringBoot +Mybatis+SpringSecurity+Thymeleaf
+* 数据库 : MYSQL
+* 前端:  Html+Jquery+CSS+JS
+
+## 一 业务介绍
+
+本系统分为以下几个模块：
+
+### 1.登录
+
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102224146.png)
+
+### 2.图书管理
+可以查看所有图书，并且可以搜索，编辑，添加图书
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102225639.png)
+>![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102225712.png)
+
+### 3 借阅管理
+该模块主要针对读者，可以浏览图书，并借阅，也可以查看自己借阅的图书，并进行还书操作
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102225803.png)
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102225828.png)
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102225838.png)
+
+### 4.读者管理
+该模块可以添加读者，添加读者账号可以进行借书等操作
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102225936.png)
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102225946.png)
+### 5 用户中心
+可以查看修改所有用户的信息,也可以把某个用户设置为管理员角色,进行图书管理。
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102230037.png)
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102230049.png)
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102230059.png)
+
+## 二 技术介绍
+### 1.技术栈
+
+* 后端:  SpringBoot +Mybatis+SpringSecurity+Thymeleaf
+* 数据库 : MYSQL
+* 前端:  Html+Jquery+CSS+JS
+
+### 2.代码介绍
+![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102230318.png)
+
+### 三 Quick Start
+
+### 1. 环境准备
+* MYSQL 5.7
+* JDK1.8
+* Maven 3
+* IDEA
+
+> 以上环境需要准备好, 在自己的本地搭建好,方可进行下面步骤
+### 2. 下载源码
+
+关注微信公众号: **ITSource 每日分享**,回复 `0015` 获取源码
+
+
+### 3. 后端部署
+
+- Step1: 下载源码
+- Step2: IDEA 打开项目
+- Step3: 安装 Maven 依赖
+- Step4: 配置检查
+> 数据库配置: 找到配置文件 `src/main/resources/application.yml` 修改数据库配置。如图
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102224332.png)
+
+注意：**不需要手动创建数据库和初始化表结构，直接运行项目，会自动创建数据库，初始化SQL语句**
+- Step4: 启动后端项目
+> Idea 运行后端项目,看到以下信息,表示运行成功
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102224215.png)
+
+
+点击任何一个连接,即可跳转浏览器打开.
+> ![image.png](https://itguang.oss-cn-beijing.aliyuncs.com/20240102224146.png)
+
+
+>登录:  输入账号密码: admin 123 即可登录成功!
+
+## 下载源码
+
+---
+关注微信公众号: **ITSource 每日分享**,回复 `0015` 获取源码
+
+---
+
+**关注微信公众号 【ITSource每日分享】,免费获取一万个IT资源：项目源码，软件工具，面试面经，学习视频 应有尽有！！！!**
+
+![关注 微信公众号 ! 获取更多学习资源呀 ](https://itguang.oss-cn-beijing.aliyuncs.com/订阅号.jpeg)
+
+> 可付费二次开发,  定制, 一对一讲解, 有意可微信联系:  **itguangit**
